@@ -1,0 +1,41 @@
+package main
+
+import (
+	"fmt"
+	"reflect"
+)
+
+type testReflect5 struct {
+	Name string
+	Ages ages
+	Num  int8
+}
+type ages struct {
+	A int
+	B int
+}
+
+func main() {
+	t := testReflect5{
+		Name: "bago",
+		Ages: ages{3, 33},
+		Num:  11,
+	}
+	e := reflect.ValueOf(&t).Elem()
+	typeE := e.Type()
+	for i := 0; i < e.NumField(); i++ {
+		f := e.Field(i)
+		fmt.Printf("%d: %s %s = %v\n", i, typeE.Field(i).Name, f.Type(), f.Interface())
+	}
+	e.Field(0).SetString("teeth")
+	e.Field(1).Set(reflect.ValueOf(ages{
+		A: 9,
+		B: 99,
+	}))
+	fmt.Println("*********")
+	e.Field(2).SetInt(65663) //65536+127
+	for i := 0; i < e.NumField(); i++ {
+		f := e.Field(i)
+		fmt.Printf("%d: %s %s = %v\n", i, typeE.Field(i).Name, f.Type(), f.Interface())
+	}
+}
