@@ -13,3 +13,15 @@ func TryCover() int {
 	}
 	return sum
 }
+
+func TryBenchmark() int {
+	sum := 0
+	for i := 0; i <= 1000; i++ {
+		sum += i
+	}
+	return sum
+}
+
+func TryFastBenchmark() int {
+	return 500500
+}
