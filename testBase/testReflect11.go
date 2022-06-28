@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	var a interface{}
+	var a = "ababa"
 	t := reflect.TypeOf(a)
 	fmt.Println(t)
 }

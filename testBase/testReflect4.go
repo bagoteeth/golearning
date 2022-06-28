@@ -38,7 +38,7 @@ func main() {
 	//fmt.Println(t3.Name())
 	//fmt.Println(t3.Kind())
 	//d := D{
-	//	name: "ddddddd",
+	//	Name: "ddddddd",
 	//	age:  24,
 	//}
 	//t4 := reflect.TypeOf(d)

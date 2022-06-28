@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-	fmt.Println(os.Getppid())
-
+	processname := os.Args[0]
+	fmt.Println(processname)
 }
