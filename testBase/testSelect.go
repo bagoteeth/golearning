@@ -4,15 +4,11 @@ import "fmt"
 
 func main() {
 	c := make(chan int)
-	c <- 1
-	c <- 2
-	for {
-		select {
-		case a := <-c:
-			fmt.Println(a)
-		default:
-			fmt.Println("out...")
-			return
-		}
+	select {
+	case a, ok := <-c:
+		fmt.Printf("receive %d, %b", a, ok)
 	}
+
+	//a, ok := <- c
+	//fmt.Printf("receive %d, %b", a, ok)
 }
